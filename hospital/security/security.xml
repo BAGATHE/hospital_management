@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-   <data noupdate="0">
+   <data>
        <record id="hospital_category" model="ir.module.category">
            <field name="name">Hospital</field>
            <field name="sequence">10</field>
