@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="demo_patient_1" model="hospital.patient">
+        <field name="name">John Doe</field>
+        <field name="login">john@gmail.com</field>
+        <field name="password">john</field>
+        <field name="sex">male</field>
+        <field name="blood_type">A</field>
+        <field name="date_of_birth">1990-05-20</field>
+        <field name="weight">75</field>
+        <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
+    </record>
+
+    <record id="demo_patient_2" model="hospital.patient">
+        <field name="name">Emma Smith</field>
+        <field name="login">smith@gmail.com</field>
+        <field name="password">smith</field>
+        <field name="sex">female</field>
+        <field name="blood_type">B</field>
+        <field name="date_of_birth">1985-11-02</field>
+        <field name="weight">62</field>
+        <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
+    </record>
+
+    <record id="demo_patient_3" model="hospital.patient">
+        <field name="name">Alice Johnson</field>
+        <field name="login">alice@gmail.com</field>
+        <field name="password">alice</field>
+        <field name="sex">female</field>
+        <field name="blood_type">C</field>
+        <field name="date_of_birth">1995-07-15</field>
+        <field name="weight">68</field>
+        <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
+    </record>
+
+    <record id="demo_patient_4" model="hospital.patient">
+        <field name="name">Michael Brown</field>
+        <field name="login">brown@gmail.com</field>
+        <field name="password">brown</field>
+        <field name="sex">male</field>
+        <field name="blood_type">D</field>
+        <field name="date_of_birth">1978-01-30</field>
+        <field name="weight">85</field>
+        <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
+    </record>
+
+    <record id="demo_patient_5" model="hospital.patient">
+        <field name="name">Sophia Lee</field>
+        <field name="login">sophia@gmail.com</field>
+        <field name="password">sophia</field>
+        <field name="sex">female</field>
+        <field name="blood_type">A</field>
+        <field name="date_of_birth">2000-03-22</field>
+        <field name="weight">59</field>
+        <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
+    </record>
+</odoo>

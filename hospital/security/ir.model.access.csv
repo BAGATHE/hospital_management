@@ -1,2 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_etech_addons/hospital_project/hospital_etech_addons/hospital_project/hospital,etech_addons/hospital_project/hospital.etech_addons/hospital_project/hospital,model_etech_addons/hospital_project/hospital_etech_addons/hospital_project/hospital,base.group_user,1,1,1,1
+
+hospital.access_hospital_doctor,access_hospital_doctor,hospital.model_hospital_doctor,hospital.group_hospital_doctor,1,1,1,1
+hospital.access_hospital_nurse,access_hospital_nurse,hospital.model_hospital_nurse,hospital.group_hospital_doctor,1,1,1,1
+hospital.access_hospital_patient,access_hospital_patient,hospital.model_hospital_patient,hospital.group_hospital_doctor,1,1,1,1
+hospital.access_hospital_disease,access_hospital_disease,hospital.model_hospital_disease,hospital.group_hospital_doctor,1,1,1,1
+hospital.access_hospital_symptom,access_hospital_symptom,hospital.model_hospital_symptom,hospital.group_hospital_doctor,1,1,1,1
+
+
+hospital.access_hospital_base,access_hospital_base,hospital.model_hospital_doctor,base.group_user,1,1,1,1
+

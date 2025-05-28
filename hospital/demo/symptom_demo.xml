@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="demo_symptom_1" model="hospital.symptom">
+        <field name="name">Fever</field>
+    </record>
+    <record id="demo_symptom_2" model="hospital.symptom">
+        <field name="name">Cough</field>
+    </record>
+    <record id="demo_symptom_3" model="hospital.symptom">
+        <field name="name">Headache</field>
+    </record>
+    <record id="demo_symptom_4" model="hospital.symptom">
+        <field name="name">Shortness of breath</field>
+    </record>
+    <record id="demo_symptom_5" model="hospital.symptom">
+        <field name="name">Fatigue</field>
+    </record>
+    <record id="demo_symptom_6" model="hospital.symptom">
+        <field name="name">Nausea</field>
+    </record>
+    <record id="demo_symptom_7" model="hospital.symptom">
+        <field name="name">Chest pain</field>
+    </record>
+    <record id="demo_symptom_8" model="hospital.symptom">
+        <field name="name">Dizziness</field>
+    </record>
+    <record id="demo_symptom_9" model="hospital.symptom">
+        <field name="name">Sore throat</field>
+    </record>
+    <record id="demo_symptom_10" model="hospital.symptom">
+        <field name="name">Loss of appetite</field>
+    </record>
+</odoo>

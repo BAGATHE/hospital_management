@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="demo_doctor_1" model="hospital.doctor">
+        <field name="name">Dr. Jean Martin</field>
+        <field name="login">martin@gmail.com</field>
+        <field name="password">martin</field>
+        <field name="license_number">MD123456</field>
+        <field name="start_service">2023-01-15</field>
+        <field name="groups_id" eval="[(4, ref('hospital.group_hospital_doctor'))]"/>
+    </record>
+
+    <record id="demo_doctor_2" model="hospital.doctor">
+        <field name="name">Dr. Sophie Lambert</field>
+        <field name="login">lambert@gmail.com</field>
+        <field name="password">lambert</field>
+        <field name="license_number">MD789012</field>
+        <field name="start_service">2022-05-20</field>
+        <field name="groups_id" eval="[(4, ref('hospital.group_hospital_doctor'))]"/>
+    </record>
+
+     <record id="demo_doctor_3" model="hospital.doctor">
+        <field name="name">Dr. Max Ji</field>
+        <field name="login">max@gmail.com</field>
+         <field name="password">max</field>
+        <field name="license_number">MD892578</field>
+        <field name="start_service">2023-05-20</field>
+        <field name="groups_id" eval="[(4, ref('hospital.group_hospital_doctor'))]"/>
+    </record>
+</odoo>
