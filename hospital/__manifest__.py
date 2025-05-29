@@ -26,15 +26,15 @@ Long description of module's purpose
         'security/ir.model.access.csv',
         'views/hospital_doctor_views.xml',
         'views/hospital_menus.xml',
-        'views/views.xml',
-        'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
         'demo/doctor_demo.xml',
         'demo/nurse_demo.xml',
         'demo/patient_demo.xml',
+        'demo/disease_demo.xml',
+        'demo/symptom_demo.xml',
+        'demo/symptom_disease_data.xml',
     ],
     'application': True,
     'installable': True,
