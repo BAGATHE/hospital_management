@@ -36,6 +36,7 @@ Long description of module's purpose
         'demo/symptom_demo.xml',
         'demo/symptom_disease_data.xml',
     ],
+    'post_init_hook': 'assign_admin_hospital_group',
     'application': True,
     'installable': True,
 }

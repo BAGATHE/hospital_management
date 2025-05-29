@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_etech_addons/hospital_project/patient_portal_etech_addons/hospital_project/patient_portal,etech_addons/hospital_project/patient_portal.etech_addons/hospital_project/patient_portal,model_etech_addons/hospital_project/patient_portal_etech_addons/hospital_project/patient_portal,base.group_user,1,1,1,1
