@@ -1,25 +1,27 @@
-from odoo import fields, models,api
-from datetime import date
+from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+from datetime import date
 
 class HospitalPatient(models.Model):
     _name = 'hospital.patient'
+    _inherits = {'res.partner': 'partner_id'}
     _description = 'Hospital Patient'
-    _inherits = {'res.users': 'user_id'}
 
-    sex = fields.Selection(string="Sex", selection=[('male', 'Male'), ('female', 'Female')],required=True)
-    blood_type = fields.Selection(string="Blood Type", selection=[('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D')],required=True)
-    date_of_birth = fields.Date(string="Date of Birth",required=True)
-    weight = fields.Float(string="Weight",required=True)
-    user_id = fields.Many2one('res.users', string='User Account', required=True, ondelete='cascade')
+    partner_id = fields.Many2one('res.partner', string="Related Partner", required=True, ondelete='cascade')
+
+    sex = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Sex", required=True)
+    blood_type = fields.Selection([('A', 'A'), ('B', 'B'), ('AB', 'AB'), ('O', 'O')], string="Blood Type", required=True)
+    date_of_birth = fields.Date(string="Date of Birth", required=True)
+    weight = fields.Float(string="Weight (kg)", required=True)
+    user_id = fields.Many2one('res.users', string='Portal Account')
 
     _sql_constraints = [
-        ('unique_user_account','UNIQUE(user_id)','Each patient must have a unique user account.'),
-        ('check_weight','CHECK(weight > 0)','weight cannot be negative')
+        ('check_weight', 'CHECK(weight > 0)', 'Weight must be positive.'),
+        ('unique_user_id', 'UNIQUE(user_id)', 'A user can only be linked to one patient.')
     ]
 
     @api.constrains('date_of_birth')
     def _check_date_of_birth(self):
-        for patient in self:
-            if patient.date_of_birth and patient.date_of_birth > date.today():
-                raise ValidationError('date of birth should not be in the future')
+        for rec in self:
+            if rec.date_of_birth and rec.date_of_birth > date.today():
+                raise ValidationError("Date of birth cannot be in the future.")

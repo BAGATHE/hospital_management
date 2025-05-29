@@ -8,6 +8,7 @@
 
        <record id="group_hospital_patient" model="res.groups">
            <field name="name">Patient</field>
+           <field name="implied_ids" eval="[(6, 0, [ref('base.group_portal')])]"/>
            <field name="category_id" ref="hospital.hospital_category"/>
        </record>
 

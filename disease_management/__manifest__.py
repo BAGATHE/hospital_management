@@ -23,7 +23,7 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
+        #'security/ir.model.access.csv',
         'views/disease_views.xml',
         'views/symptom_views.xml',
         'views/disease_management_menus_views.xml',
@@ -32,9 +32,6 @@ Long description of module's purpose
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/disease_demo.xml',
-        'demo/symptom_demo.xml',
-        'demo/symptom_disease_data.xml',
     ],
     'application': True,
     'installable': True,

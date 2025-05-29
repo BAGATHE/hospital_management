@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <!-- Influenza -->
-    <record id="demo_symptom_disease_1" model="disease_management.symptom.disease">
+    <record id="demo_symptom_disease_1" model="hospital.symptom.disease">
         <field name="disease_id" ref="demo_disease_1"/>
         <field name="symptom_id" ref="demo_symptom_1"/> <!-- Fever -->
         <field name="gravity">3</field>
     </record>
-    <record id="demo_symptom_disease_2" model="disease_management.symptom.disease">
+    <record id="demo_symptom_disease_2" model="hospital.symptom.disease">
         <field name="disease_id" ref="demo_disease_1"/>
         <field name="symptom_id" ref="demo_symptom_2"/> <!-- Cough -->
         <field name="gravity">2</field>
     </record>
-    <record id="demo_symptom_disease_3" model="disease_management.symptom.disease">
+    <record id="demo_symptom_disease_3" model="hospital.symptom.disease">
         <field name="disease_id" ref="demo_disease_1"/>
         <field name="symptom_id" ref="demo_symptom_5"/> <!-- Fatigue -->
         <field name="gravity">2</field>
     </record>
 
     <!-- Tuberculosis -->
-    <record id="demo_symptom_disease_4" model="disease_management.symptom.disease">
+    <record id="demo_symptom_disease_4" model="hospital.symptom.disease">
         <field name="disease_id" ref="demo_disease_3"/>
         <field name="symptom_id" ref="demo_symptom_2"/> <!-- Cough -->
         <field name="gravity">4</field>
     </record>
-    <record id="demo_symptom_disease_5" model="disease_management.symptom.disease">
+    <record id="demo_symptom_disease_5" model="hospital.symptom.disease">
         <field name="disease_id" ref="demo_disease_3"/>
         <field name="symptom_id" ref="demo_symptom_4"/> <!-- Shortness of breath -->
         <field name="gravity">5</field>
     </record>
-    <record id="demo_symptom_disease_6" model="disease_management.symptom.disease">
+    <record id="demo_symptom_disease_6" model="hospital.symptom.disease">
         <field name="disease_id" ref="demo_disease_3"/>
         <field name="symptom_id" ref="demo_symptom_5"/> <!-- Fatigue -->
         <field name="gravity">3</field>
     </record>
 
     <!-- Diabetes -->
-    <record id="demo_symptom_disease_7" model="disease_management.symptom.disease">
+    <record id="demo_symptom_disease_7" model="hospital.symptom.disease">
         <field name="disease_id" ref="demo_disease_2"/>
         <field name="symptom_id" ref="demo_symptom_10"/> <!-- Loss of appetite -->
         <field name="gravity">2</field>
     </record>
-    <record id="demo_symptom_disease_8" model="disease_management.symptom.disease">
+    <record id="demo_symptom_disease_8" model="hospital.symptom.disease">
         <field name="disease_id" ref="demo_disease_2"/>
         <field name="symptom_id" ref="demo_symptom_8"/> <!-- Dizziness -->
         <field name="gravity">3</field>
     </record>
 
     <!-- Hypertension -->
-    <record id="demo_symptom_disease_9" model="disease_management.symptom.disease">
+    <record id="demo_symptom_disease_9" model="hospital.symptom.disease">
         <field name="disease_id" ref="demo_disease_4"/>
         <field name="symptom_id" ref="demo_symptom_7"/> <!-- Chest pain -->
         <field name="gravity">4</field>
     </record>
-    <record id="demo_symptom_disease_10" model="disease_management.symptom.disease">
+    <record id="demo_symptom_disease_10" model="hospital.symptom.disease">
         <field name="disease_id" ref="demo_disease_4"/>
         <field name="symptom_id" ref="demo_symptom_8"/> <!-- Dizziness -->
         <field name="gravity">2</field>

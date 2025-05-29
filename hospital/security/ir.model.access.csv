@@ -2,7 +2,28 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 hospital.access_hospital_doctor,access_hospital_doctor,hospital.model_hospital_doctor,hospital.group_hospital_doctor,1,1,1,1
 hospital.access_hospital_nurse,access_hospital_nurse,hospital.model_hospital_nurse,hospital.group_hospital_doctor,1,1,1,1
 hospital.access_hospital_patient,access_hospital_patient,hospital.model_hospital_patient,hospital.group_hospital_doctor,1,1,1,1
+hospital.access_hospital_symptom,access_hospital_symptom,hospital.model_hospital_symptom,hospital.group_hospital_doctor,1,1,1,1
+hospital.access_hospital_disease,access_hospital_disease,hospital.model_hospital_disease,hospital.group_hospital_doctor,1,1,1,1
+hospital.access_hospital_symptom_disease,access_hospital_symptom_disease,hospital.model_hospital_symptom_disease,hospital.group_hospital_doctor,1,1,1,1
 
 
-hospital.access_hospital_base,access_hospital_base,hospital.model_hospital_doctor,base.group_user,1,1,1,1
+
+hospital.access_hospital_doctor_nurse,access_hospital_doctor_nurse,hospital.model_hospital_doctor,hospital.group_hospital_nurse,1,0,0,0
+hospital.access_hospital_nurse_nurse,access_hospital_nurse_nurse,hospital.model_hospital_nurse,hospital.group_hospital_nurse,1,0,0,0
+hospital.access_hospital_patient_nurse,access_hospital_patient_nurse,hospital.model_hospital_patient,hospital.group_hospital_nurse,1,0,0,0
+hospital.access_hospital_symptom_nurse,access_hospital_symptom_nurse,hospital.model_hospital_symptom,hospital.group_hospital_nurse,1,0,0,0
+hospital.access_hospital_disease_nurse,access_hospital_disease_nurse,hospital.model_hospital_disease,hospital.group_hospital_nurse,1,0,0,0
+hospital.access_hospital_symptom_disease_nurse,access_hospital_symptom_disease_nurse,hospital.model_hospital_symptom_disease,hospital.group_hospital_nurse,1,0,0,0
+
+
+
+
+hospital.access_hospital_doctor_base,access_hospital_doctor_base,hospital.model_hospital_doctor,base.group_user,1,1,1,1
+hospital.access_hospital_nurse_base,access_hospital_nurse_base,hospital.model_hospital_nurse,base.group_user,1,1,1,1
+hospital.access_hospital_patient_base,access_hospital_patient_base,hospital.model_hospital_patient,base.group_user,1,1,1,1
+hospital.access_hospital_symptom_base,access_hospital_symptom_base,hospital.model_hospital_symptom,base.group_user,1,1,1,1
+hospital.access_hospital_disease_base,access_hospital_disease_base,hospital.model_hospital_disease,base.group_user,1,1,1,1
+hospital.access_hospital_symptom_disease_base,access_hospital_symptom_disease_base,hospital.model_hospital_symptom_disease,base.group_user,1,1,1,1
+
+
 
