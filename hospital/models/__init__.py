@@ -7,4 +7,5 @@ from . import hospital_patient
 from . import hospital_symptom
 from . import hospital_disease
 from . import hospital_symptom_disease
-#from . import hospital_request
+from . import hospital_request
+from . import hospital_symptom_request

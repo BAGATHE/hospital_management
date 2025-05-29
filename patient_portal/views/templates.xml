@@ -1,0 +1,129 @@
+<odoo>
+
+    <template id="frontend_layout_logo_inherit" inherit_id="portal.frontend_layout">
+    <xpath expr="//a[hasclass('navbar-brand')]/img" position="replace">
+        <img t-att-src="'/patient_portal/static/src/img/kit.svg'"
+             alt="Logo Patient Portal"
+             class="img-fluid"
+             style="max-height: 50px;"/>
+    </xpath>
+    </template>
+
+    <template id="portal_side_content_inherit" inherit_id="portal.side_content">
+        <xpath expr="//div[hasclass('o_portal_my_details')]" position="after">
+            <a href="/my/requests" class="btn btn-outline-primary btn-sm mt-3 w-100 d-flex align-items-center justify-content-start gap-2">
+                <i class="fa fa-notes-medical"/> My medical requests
+            </a>
+        </xpath>
+    </template>
+
+
+    <template id="portal_my_home_inherit" inherit_id="portal.portal_my_home" name="Portal Home - Medical Requests">
+        <xpath expr="//div[hasclass('o_portal_docs') and hasclass('row') and hasclass('g-2')]" position="inside">
+             <t t-call="portal.portal_docs_entry">
+                 <t t-set="icon" t-value="'/patient_portal/static/src/img/request.svg'"/>
+                 <t t-set="title">My medical requests</t>
+                 <t t-set="text">View or submit your medical requests</t>
+                 <t t-set="url" t-value="'/my/requests'"/>
+                 <t t-set="config_card" t-value="True"/>
+             </t>
+        </xpath>
+    </template>
+
+    <!-- 📄 Page liste des demandes -->
+
+    <template id="portal_my_requests" name="My Requests">
+    <t t-call="portal.portal_layout">
+        <div class="container">
+            <h2>My medical requests</h2>
+            <a class="btn btn-primary my-2" href="/my/requests/new">Make a request</a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>State</th>
+                        <th>Doctor</th>
+                        <th>Symptoms</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="requests" t-as="req">
+                        <tr>
+                            <td><t t-esc="req.request_date"/></td>
+                            <td>
+                                <t t-if="req.state == 'pending'">
+                                    <span class="badge bg-warning text-dark">Pending</span>
+                                </t>
+                                <t t-if="req.state == 'validated'">
+                                    <span class="badge bg-success">Validated</span>
+                                </t>
+                            </td>
+                            <td><t t-esc="req.doctor_id.name or 'N/A'"/></td>
+                            <td>
+                                <ul class="mb-0 ps-3">
+                                    <t t-foreach="req.symptom_request_ids" t-as="symptom_request">
+                                        <li><t t-esc="symptom_request.symptom_id.name"/></li>
+                                    </t>
+                                </ul>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+    </t>
+</template>
+
+
+
+    <template id="portal_new_request" name="New Request">
+        <t t-call="portal.portal_layout">
+            <div class="container d-flex justify-content-center mt-5">
+                <div class="card shadow p-4" style="width: 100%; max-width: 600px;">
+                    <h2 class="card-title text-center mb-4">Nouvelle Demande</h2>
+                    <t t-if="error">
+                        <div t-attf-class="alert alert-danger" role="alert">
+                            <t t-esc="error"/>
+                        </div>
+                    </t>
+
+                    <form method="post" action="/my/requests/new">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="form-group mb-3">
+                            <label for="request_date" class="form-label">Date de la demande</label>
+                            <input type="date" name="request_date" id="request_date" class="form-control" required="required"/>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="doctor_id" class="form-label">Choisir un docteur</label>
+                            <select name="doctor_id" id="doctor_id" class="form-select" required="required">
+                                <option value="">Sélectionnez un docteur</option>
+                                <t t-foreach="doctors" t-as="doctor">
+                                    <option t-att-value="doctor.id"><t t-esc="doctor.name"/></option>
+                                </t>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Symptômes</label>
+                            <div class="row">
+                                <t t-foreach="symptoms" t-as="symptom">
+                                    <div class="col-12 col-sm-6 mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="symptom_ids" t-att-id="'symptom_' + str(symptom.id)" t-att-value="symptom.id"/>
+                                            <label class="form-check-label" t-att-for="'symptom_' + str(symptom.id)">
+                                                <t t-esc="symptom.name"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success mt-3">Envoyer la demande</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>
