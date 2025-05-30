@@ -13,3 +13,8 @@ class HospitalDisease(models.Model):
         'disease_id',
         string='Symptoms'
     )
+    treatment_ids = fields.One2many(
+        'hospital.treatment',
+        'disease_id',
+        string='Treatments'
+    )
