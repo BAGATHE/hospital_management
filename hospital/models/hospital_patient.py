@@ -14,6 +14,8 @@ class HospitalPatient(models.Model):
     date_of_birth = fields.Date(string="Date of Birth", required=True)
     weight = fields.Float(string="Weight (kg)", required=True)
     user_id = fields.Many2one('res.users', string='Portal Account')
+    login = fields.Char(string="Login")
+    password = fields.Char(string="Password")
 
     _sql_constraints = [
         ('check_weight', 'CHECK(weight > 0)', 'Weight must be positive.'),
@@ -25,3 +27,33 @@ class HospitalPatient(models.Model):
         for rec in self:
             if rec.date_of_birth and rec.date_of_birth > date.today():
                 raise ValidationError("Date of birth cannot be in the future.")
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        group_patient = self.env.ref('hospital.group_hospital_patient')
+
+        for vals in vals_list:
+            if vals.get('login') and vals.get('password'):
+                user_vals = {
+                    'name': vals.get('name'),
+                    'login': vals['login'],
+                    'password': vals['password'],
+                    'email': vals.get('email', False),
+                    'groups_id': [(6, 0, [group_patient.id])],
+                    'partner_id': vals.get('partner_id'),
+                }
+                user = self.env['res.users'].create(user_vals)
+                vals['user_id'] = user.id
+            elif vals.get('login') or vals.get('password'):
+                raise ValidationError("Both login and password must be provided to create a user account.")
+
+        return super().create(vals_list)
+
+    def unlink(self):
+        users_to_delete = self.mapped('user_id')
+        res = super().unlink()
+        users_to_delete.unlink()
+        return res
+
+
+
