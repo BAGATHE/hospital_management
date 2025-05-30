@@ -43,7 +43,11 @@
                                 </field>
                             </page>
                             <page string="treatment">
-
+                                <field name="treatment_ids">
+                                    <list editable="bottom">
+                                        <field name="medicine_id"/>
+                                    </list>
+                                </field>
                             </page>
                         </notebook>
                     </sheet>
