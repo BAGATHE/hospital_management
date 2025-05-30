@@ -11,6 +11,9 @@
             <menuitem id="patient_nav" name="Patient">
                 <menuitem id="menu_patient" action="action_patient"/>
             </menuitem>
+            <menuitem id="medecine_nav" name="Medicine">
+                <menuitem id="menu_medecine" action="action_medicine"/>
+            </menuitem>
         </menuitem>
     </data>
 </odoo>

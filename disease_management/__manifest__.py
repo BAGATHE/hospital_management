@@ -20,7 +20,7 @@ Long description of module's purpose
 
     # any module necessary for this one to work correctly
     'depends': ['base','hospital'],
-
+    'icon': '/disease_management/static/src/img/disease.svg',
     # always loaded
     'data': [
         #'security/ir.model.access.csv',

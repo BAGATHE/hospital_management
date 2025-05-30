@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+   <data>
+       <record id="action_request_patient" model="ir.actions.act_window">
+           <field name="name">Patient Request</field>
+           <field name="res_model">hospital.request</field>
+           <field name="view_mode">list,form</field>
+           <field name="help" type="html">
+                   <p class="o_view_nocontent_smiling_face">Create your first record!
+                   </p>
+           </field>
+       </record>
+
+
+       <record id="request_patient_wiew_by_nurse" model="ir.ui.view">
+           <field name="name">Patient Request</field>
+           <field name="model">hospital.request</field>
+           <field name="arch" type="xml">
+               <list>
+                   <field name="request_date" />
+                   <field name="patient_id" />
+                   <field name="state" widget="badge" decoration-success="state == 'validated'" decoration-danger="state == 'canceled'" decoration-info="state == 'pending'"/>
+               </list>
+           </field>
+       </record>
+       
+       
+       <record id="request_patient_form_view_nurse" model="ir.ui.view">
+    <field name="name">Patient Request Form</field>
+    <field name="model">hospital.request</field>
+    <field name="arch" type="xml">
+        <form string="Patient Request">
+            <header>
+                <field name="state" widget="statusbar" statusbar_visible="pending,validated,canceled" class="oe_highlight"/>
+                <button name="action_validate_request" string="Validate" type="object" class="oe_highlight" invisible="state in ['canceled','validated']"/>
+                <button name="action_cancel_request" string="Cancel" type="object" class="oe_danger" invisible="state in ['canceled','validated']"/>
+            </header>
+
+            <sheet>
+                <div class="oe_title">
+                    <h1>patient request </h1>
+                </div>
+
+                <group col="2">
+                    <group>
+                        <field name="request_date" readonly="1"/>
+                        <field name="doctor_id"/>
+                    </group>
+                    <group>
+                        <field name="patient_id" readonly="1"/>
+                        <field name="patient_sex" readonly="1"/>
+                        <field name="patient_blood_type" readonly="1"/>
+                        <field name="patient_weight" readonly="1"/>
+                    </group>
+                </group>
+
+                <notebook>
+                    <page string="Description">
+                        <field name="symptom_request_ids" mode="list,form" readonly="1">
+                            <list>
+                                  <field name="symptom_id" readonly="1"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+
+            <footer>
+
+            </footer>
+        </form>
+    </field>
+</record>
+
+   </data>
+</odoo>

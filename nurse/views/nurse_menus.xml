@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem id="nurse_menu_root" name="Nurse" action="action_request_patient">
+            <menuitem id="request_nav" name="Patient request" action="action_request_patient" />
+        </menuitem>
+    </data>
+</odoo>

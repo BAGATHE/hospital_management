@@ -42,6 +42,9 @@
                                     </list>
                                 </field>
                             </page>
+                            <page string="treatment">
+
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
