@@ -25,6 +25,8 @@ Long description of module's purpose
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/hospital_doctor_views.xml',
+        'views/hospital_nurse_views.xml',
+        'views/hospital_patient_views.xml',
         'views/hospital_menus.xml',
     ],
     # only loaded in demonstration mode

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <record id="action_patient" model="ir.actions.act_window">
+      <field name="name">Patient</field>
+      <field name="res_model">hospital.patient</field>
+      <field name="view_mode">list,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Create your first record!</p>
+      </field>
+    </record>
+
+    <record id="view_hospital_patient_list" model="ir.ui.view">
+      <field name="name">hospital.patient.list</field>
+      <field name="model">hospital.patient</field>
+      <field name="arch" type="xml">
+        <list string="Patients">
+          <field name="name"/>
+          <field name="sex"/>
+          <field name="blood_type"/>
+          <field name="date_of_birth"/>
+          <field name="weight"/>
+          <field name="street" />
+          <field name="user_id" />
+        </list>
+      </field>
+    </record>
+
+    <record id="view_hospital_patient_form" model="ir.ui.view">
+      <field name="name">hospital.patient.form</field>
+      <field name="model">hospital.patient</field>
+      <field name="arch" type="xml">
+        <form string="Patient">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="street"/>
+              <field name="sex"/>
+              <field name="blood_type"/>
+              <field name="date_of_birth"/>
+              <field name="weight"/>
+            </group>
+            <group string="User Account" colspan="2">
+                <field name="user_id" readonly="1"/>
+                <field name="login"/>
+                <field name="password" password="True"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Liaison des vues à l'action -->
+    <record id="patient_action_views" model="ir.actions.act_window.view">
+      <field name="sequence" eval="10"/>
+      <field name="view_mode">list</field>
+      <field name="view_id" ref="view_hospital_patient_list"/>
+      <field name="act_window_id" ref="action_patient"/>
+    </record>
+    <record id="patient_action_form_views" model="ir.actions.act_window.view">
+      <field name="sequence" eval="20"/>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_hospital_patient_form"/>
+      <field name="act_window_id" ref="action_patient"/>
+    </record>
+  </data>
+</odoo>
