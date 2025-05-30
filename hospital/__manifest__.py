@@ -19,6 +19,7 @@ Long description of module's purpose
      'license': 'LGPL-3',
     # any module necessary for this one to work correctly
     'depends': ['base'],
+    'icon': '/hospital/static/src/img/hospital.svg',
 
     # always loaded
     'data': [
@@ -27,6 +28,7 @@ Long description of module's purpose
         'views/hospital_doctor_views.xml',
         'views/hospital_nurse_views.xml',
         'views/hospital_patient_views.xml',
+        'views/hospital_medicine_views.xml',
         'views/hospital_menus.xml',
     ],
     # only loaded in demonstration mode
