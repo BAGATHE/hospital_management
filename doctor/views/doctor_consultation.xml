@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+   <data>
+       <record id="action_doctor_consultation" model="ir.actions.act_window">
+           <field name="name">Doctor Consultation</field>
+           <field name="res_model">hospital.consultation</field>
+           <field name="view_mode">list,form</field>
+           <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first record!
+            </p>
+           </field>
+       </record>
+
+       <record id="list_consultation_doctor" model="ir.ui.view">
+           <field name="name">Consultation doctor List</field>
+           <field name="model">hospital.consultation</field>
+           <field name="arch" type="xml">
+               <list>
+                   <field name="patient_id" />
+                   <field name="consultation_date" />
+                    <field name="state" widget="badge"
+                           decoration-success="state == 'completed'"
+                           decoration-danger="state == 'canceled'"
+                           decoration-info="state == 'draft'"
+                           decoration-warning="state == 'in_progress'"/>
+               </list>
+           </field>
+       </record>
+
+       <record id="view_hospital_consultation_form" model="ir.ui.view">
+    <field name="name">hospital.consultation.form</field>
+    <field name="model">hospital.consultation</field>
+    <field name="arch" type="xml">
+        <form string="Consultation Form">
+            <header>
+                <button name="action_in_progress" type="object" string="Start"  class="btn-primary" invisible="state in ['in_progress','canceled','completed']"/>
+                <button name="action_cancel" type="object" string="Cancel"  class="btn-danger" invisible="state in ['draft','canceled','in_progress','completed']"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,completed,canceled"/>
+            </header>
+
+            <sheet readonly="state in ['draft']">
+                <div class="oe_title">
+                    <h1>
+                        <field name="patient_id"/>
+                    </h1>
+                </div>
+
+                <group>
+                    <group col="2">
+                        <field name="consultation_date" readonly="1"/>
+                        <field name="doctor_id" readonly="1"/>
+                        <field name="price_total_medicine" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="advice"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Symptoms">
+                        <field name="symptom_request_ids">
+                            <list>
+                                <field name="symptom_id"/>
+                            </list>
+                        </field>
+                    </page>
+                    <page string="Prescription">
+                        <field name="consultation_line_ids" readonly="state in ['draft']">
+                            <list editable="bottom">
+                                <field name="medicine_id"/>
+                                <field name="quantity"/>
+                                <field name="medicine_price" readonly="1"/>
+                                 <field name="dosage"/>
+                                 <field name="duration"/>
+                            </list>
+                        </field>
+                    </page>
+
+                </notebook>
+                <separator string="Actions"/>
+                <group>
+                    <group>
+                        <button name="action_release" type="object" string="Release with prescription" class="btn-success"
+                                invisible="(state in ['draft','canceled','completed']) "/>
+                    </group>
+                    <group>
+                        <field name="diagnosis"/>
+                        <field name="disease_id"/>
+                    </group>
+
+                </group>
+                <group invisible="(state in ['draft','canceled','completed']) ">
+                      <separator string="the patient will be hospitalized for"/>
+                      <field name="treatment_duration_days"/>
+                    <button name="submit_hospitalized" type="object" string="admitted to hospital"  class="btn-info"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+
+   </data>
+</odoo>
