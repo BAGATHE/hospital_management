@@ -1,0 +1,33 @@
+<odoo>
+  <template id="report_hospital_round" t-name="nurse.report_hospital_round">
+    <t t-call="web.external_layout">
+        <main>
+      <div class="page">
+        <h2>Rondes médicales : Semaine </h2>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Patient</th>
+              <th>Infirmière</th>
+              <th>Statut</th>
+              <th>Observation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="docs" t-as="round">
+              <tr>
+                <td><t t-esc="round.round_date"/></td>
+                <td><t t-esc="round.patient_id.name"/></td>
+                <td><t t-esc="round.nurse_id.name"/></td>
+                <td><t t-esc="round.state"/></td>
+                <td><t t-esc="round.description"/></td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+      </div>
+        </main>
+    </t>
+  </template>
+</odoo>
