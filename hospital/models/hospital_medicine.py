@@ -5,3 +5,4 @@ class HospitalMedecine(models.Model):
     _description = 'Hospital Medicine'
 
     name = fields.Char(string = "medicine name", required=True)
+    price = fields.Float(string = "medicine price", required=True,default=0)

@@ -18,6 +18,8 @@ class NurseHospitalRequest(models.Model):
             'consultation_date':self.request_date,
             'doctor_id':self.doctor_id.id,
             'patient_id':self.patient_id.id,
+            'is_hospitalized':False,
+            'is_release_with_prescription':False,
             'request_id':self.id,
         })
         self.state = 'validated'

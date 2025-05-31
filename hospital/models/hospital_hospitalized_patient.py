@@ -11,10 +11,10 @@ class HospitalHospitalizedPatient(models.Model):
             ('admitted', 'Admitted'),
             ('under_treatment', 'Under Treatment'),
             ('in_remission', 'In Remission'),
-            ('ready_for_discharge', 'Ready for Discharge'),
             ('discharged', 'Discharged')
         ],
         default='admitted',
         help="Workflow: Admitted -> Under Treatment -> In Remission -> Ready for Discharge -> Discharged"
     )
     patient_id = fields.Many2one('hospital.patient',required=True, ondelete='cascade',string='patient')
+    disease_id = fields.Many2one('hospital.disease',required=True,ondelete='cascade',string='disease')
