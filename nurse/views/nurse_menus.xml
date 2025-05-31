@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
-        <menuitem id="nurse_menu_root" name="Nurse" action="action_request_patient">
+        <menuitem id="nurse_menu_root" name="Nurse" >
             <menuitem id="request_nav" name="Patient request" action="action_request_patient" />
+            <menuitem id="hospitalized_nav" name="Patient Hospitalized" action="action_patient_hospitalized" />
+            <menuitem id="round_nav" name="Nurse Round" action="action_round" />
         </menuitem>
     </data>
 </odoo>

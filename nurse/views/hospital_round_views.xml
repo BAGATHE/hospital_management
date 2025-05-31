@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+   <data>
+
+       
+<record id="view_hospital_round_form" model="ir.ui.view">
+    <field name="name">hospital.round.form</field>
+    <field name="model">hospital.round</field>
+    <field name="arch" type="xml">
+        <form string="Medical Round" create="0">
+            <header>
+                <field name="state" widget="statusbar"/>
+            </header>
+            <sheet>
+                <group >
+                    <field name="hospitalized_patient_id" readonly="state in ['done']"/>
+                    <field name="round_date" readonly="state in ['done']"/>
+                    <field name="nurse_id" readonly="state in ['done']"/>
+                </group>
+
+                <group string="Observations">
+                    <field name="description" readonly="state in ['done']"/>
+                    <field name="diagnosis" readonly="state in ['done']"/>
+                </group>
+
+                <group string="Décision">
+                    <field name="is_free" invisible="state in ['done']" readonly="state in ['done']"/>
+                    <field name="next_round_date" invisible="is_free" required="not is_free" readonly="state in ['done']"/>
+                    <field name="description_next_round" invisible="is_free" required="not is_free" readonly="state in ['done']"/>
+                </group>
+                <button name="action_done_next" string="Done/Next" type="object" class="btn-info" invisible="state in ['done']" readonly="state in ['done']"/>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+
+       <record id="view_hospital_round_list" model="ir.ui.view">
+           <field name="name">hospital.round.list</field>
+           <field name="model">hospital.round</field>
+           <field name="arch" type="xml">
+               <list string="Nurse Rounds" create="0">
+                   <field name="round_date"/>
+                   <field name="nurse_id"/>
+                   <field name="patient_id"/>
+                   <field name="state" widget="badge" decoration-success="state in ['done']" decoration-info="state in ['planned']"/>
+                   <field name="is_free" invisible="1"/>
+               </list>
+           </field>
+       </record>
+
+       <record id="view_hospital_round_calendar" model="ir.ui.view">
+           <field name="name">hospital.round.calendar</field>
+           <field name="model">hospital.round</field>
+           <field name="arch" type="xml">
+               <calendar string="Nurse Rounds Calendar" date_start="round_date" color="nurse_id">
+                   <field name="nurse_id"/>
+                   <field name="patient_id"/>
+                   <field name="state"/>
+               </calendar>
+           </field>
+       </record>
+
+
+       <record id="view_hospital_round_search" model="ir.ui.view">
+    <field name="name">hospital.round.search</field>
+    <field name="model">hospital.round</field>
+    <field name="arch" type="xml">
+        <search string="Search Nurse Rounds">
+            <field name="description"/>
+            <field name="diagnosis"/>
+            <filter name="planned" string="planned" domain="[('state', '=', 'planned')]" help="Round planed" context="{'search_default_planned': 1}"/>
+            <filter name="done" string="done" domain="[('state', '=', 'done')]" help="round done"/>
+
+            <group expand="1" string="Avancé">
+                <field name="nurse_id"/>
+                <field name="patient_id"/>
+                <field name="round_date"/>
+                <field name="state"/>
+            </group>
+
+            <separator/>
+            <field name="round_date" filter_domain="['|', ('round_date', '=', self), ('round_date', '>=', context_today())]"/>
+        </search>
+    </field>
+</record>
+
+
+       <record id="action_round" model="ir.actions.act_window">
+           <field name="name">Nurse Round</field>
+           <field name="res_model">hospital.round</field>
+           <field name="view_mode">calendar,list,form</field>
+           <field name="view_id" ref="view_hospital_round_calendar"/>
+           <field name="search_view_id" ref="view_hospital_round_search"/>
+           <field name="context">{'search_default_planned': 1}</field>
+           <field name="help" type="html">
+               <p class="o_view_nocontent_smiling_face">Create your first record!</p>
+           </field>
+       </record>
+
+   </data>
+</odoo>
