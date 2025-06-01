@@ -7,7 +7,7 @@ class HospitalConsultationLine(models.Model):
     medicine_id = fields.Many2one('hospital.medicine',required=True,ondelete='cascade')
     quantity = fields.Integer(string="Quantity", required=True)
     dosage = fields.Text(string="dosage")
-    duration = fields.Integer(string="Duration in days")
+    duration = fields.Integer(string="Duration in days",required=True,default=1)
     consultation_id = fields.Many2one('hospital.consultation',required=True,ondelete='cascade')
     medicine_price =fields.Float(related='medicine_id.price',string="price")
 

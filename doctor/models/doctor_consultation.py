@@ -17,6 +17,7 @@ class DoctorConsultation(models.Model):
         string="Symptoms"
     )
 
+
     _sql_constraints = [
         ('treatment_duration_positive', 'CHECK(treatment_duration_days >= 0)',
          'Treatment duration must be a non-negative number.'),
@@ -29,10 +30,10 @@ class DoctorConsultation(models.Model):
         self.ensure_one()
         self.gravity_disease = sum(self.disease_id.symptom_disease_ids.mapped('gravity'))
 
-    @api.depends('consultation_line_ids')
+    @api.depends('consultation_line_ids.total_price')
     def _compute_price_total_medicine(self):
         for consultation in self:
-            consultation.price_total_medicine = sum(self.consultation_line_ids.mapped('total_price'))
+            consultation.price_total_medicine = sum(consultation.consultation_line_ids.mapped('total_price'))
 
     @api.constrains('is_hospitalized', 'is_release_with_prescription')
     def _check_action_final(self):
@@ -42,6 +43,7 @@ class DoctorConsultation(models.Model):
                     raise ValidationError(
                         _('You must select at least one action: hospitalization or discharge with prescription.'))
 
+
     def action_release(self):
         if not self.disease_id:
             raise UserError(_('After your diagnosis you must choose the patient s disease'))
@@ -50,7 +52,6 @@ class DoctorConsultation(models.Model):
         self.is_hospitalized = False
         self.treatment_duration_days = 0
         self.state = 'completed'
-
 
 
     def submit_hospitalized(self):
@@ -79,8 +80,6 @@ class DoctorConsultation(models.Model):
             'target': 'current',
             'flags': {'reload': True},
         }
-
-
 
     def action_in_progress(self):
         self.ensure_one()

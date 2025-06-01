@@ -1,44 +1,37 @@
 <odoo>
     <!-- Comptes utilisateurs avec groupe portal -->
     <record id="user_john" model="res.users">
-        <field name="name">John Doe</field>
-        <field name="login">john@gmail.com</field>
-        <field name="password">john</field>
+        <field name="name">Patient1</field>
+        <field name="login">patient1</field>
+        <field name="password">patient1</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
     </record>
 
     <record id="user_smith" model="res.users">
-        <field name="name">Emma Smith</field>
-        <field name="login">smith@gmail.com</field>
-        <field name="password">smith</field>
-        <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
-    </record>
-
-    <record id="user_alice" model="res.users">
-        <field name="name">Alice Johnson</field>
-        <field name="login">alice@gmail.com</field>
-        <field name="password">alice</field>
+        <field name="name">Patient 2</field>
+        <field name="login">patient2</field>
+        <field name="password">patient2</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
     </record>
 
     <record id="user_brown" model="res.users">
-        <field name="name">Michael Brown</field>
-        <field name="login">brown@gmail.com</field>
-        <field name="password">brown</field>
+        <field name="name">Patient 3</field>
+        <field name="login">patient3</field>
+        <field name="password">patient3</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
     </record>
 
     <record id="user_sophia" model="res.users">
-        <field name="name">Sophia Lee</field>
-        <field name="login">sophia@gmail.com</field>
-        <field name="password">sophia</field>
+        <field name="name">Patient 4</field>
+        <field name="login">patient4</field>
+        <field name="password">patient4</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
     </record>
 
     <!-- Patients liés aux utilisateurs -->
     <record id="demo_patient_1" model="hospital.patient">
-        <field name="name">John Doe</field>
-        <field name="email">john@gmail.com</field>
+        <field name="name">Patient 1</field>
+        <field name="email">patient1</field>
         <field name="sex">male</field>
         <field name="blood_type">A</field>
         <field name="date_of_birth">1990-05-20</field>
@@ -47,8 +40,8 @@
     </record>
 
     <record id="demo_patient_2" model="hospital.patient">
-        <field name="name">Emma Smith</field>
-        <field name="email">smith@gmail.com</field>
+        <field name="name">Patient 2</field>
+        <field name="email">patient2</field>
         <field name="sex">female</field>
         <field name="blood_type">B</field>
         <field name="date_of_birth">1985-11-02</field>
@@ -56,19 +49,10 @@
         <field name="user_id" ref="user_smith"/>
     </record>
 
-    <record id="demo_patient_3" model="hospital.patient">
-        <field name="name">Alice Johnson</field>
-        <field name="email">alice@gmail.com</field>
-        <field name="sex">female</field>
-        <field name="blood_type">AB</field>
-        <field name="date_of_birth">1995-07-15</field>
-        <field name="weight">68</field>
-        <field name="user_id" ref="user_alice"/>
-    </record>
 
     <record id="demo_patient_4" model="hospital.patient">
-        <field name="name">Michael Brown</field>
-        <field name="email">brown@gmail.com</field>
+        <field name="name">Patient 3</field>
+        <field name="email">patient3</field>
         <field name="sex">male</field>
         <field name="blood_type">O</field>
         <field name="date_of_birth">1978-01-30</field>
@@ -77,8 +61,8 @@
     </record>
 
     <record id="demo_patient_5" model="hospital.patient">
-        <field name="name">Sophia Lee</field>
-        <field name="email">sophia@gmail.com</field>
+        <field name="name">Patient 4</field>
+        <field name="email">patient4</field>
         <field name="sex">female</field>
         <field name="blood_type">A</field>
         <field name="date_of_birth">2000-03-22</field>

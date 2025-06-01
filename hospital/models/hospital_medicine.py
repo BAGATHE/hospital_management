@@ -6,3 +6,10 @@ class HospitalMedecine(models.Model):
 
     name = fields.Char(string = "medicine name", required=True)
     price = fields.Float(string = "medicine price", required=True,default=0)
+    equivalent_ids = fields.Many2many(
+        'hospital.medicine',
+        'medicine_equivalent_rel',
+        'medicine_id',
+        'equivalent_id',
+        string="Equivalent Medicines"
+    )

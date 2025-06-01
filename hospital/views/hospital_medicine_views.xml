@@ -1,14 +1,48 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
    <data>
+
+       <!-- Action -->
        <record id="action_medicine" model="ir.actions.act_window">
            <field name="name">Hospital Medicine</field>
            <field name="res_model">hospital.medicine</field>
            <field name="view_mode">list,form</field>
            <field name="help" type="html">
-                   <p class="o_view_nocontent_smiling_face">Create your first record!
-                   </p>
+               <p class="o_view_nocontent_smiling_face">
+                   Create your first medicine record!
+               </p>
            </field>
        </record>
+
+       <record id="view_hospital_medicine_tree" model="ir.ui.view">
+           <field name="name">hospital.medicine.tree</field>
+           <field name="model">hospital.medicine</field>
+           <field name="arch" type="xml">
+               <list string="Hospital Medicines">
+                   <field name="name"/>
+                   <field name="price"/>
+               </list>
+           </field>
+       </record>
+
+       <record id="view_hospital_medicine_form" model="ir.ui.view">
+           <field name="name">hospital.medicine.form</field>
+           <field name="model">hospital.medicine</field>
+           <field name="arch" type="xml">
+               <form string="Hospital Medicine">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                           <field name="price"/>
+                       </group>
+                       <group string="Equivalent Medicines">
+                           <field name="equivalent_ids" widget="many2many_tags"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+
+
    </data>
 </odoo>
