@@ -9,7 +9,8 @@ class NurseHospitalRound(models.Model):
         'hospital.patient',
         string='Patient',
         related='hospitalized_patient_id.patient_id',
-        readonly=True
+        readonly=True,
+        store=False,
     )
 
     @api.constrains('round_date', 'hospitalized_patient_id')

@@ -25,6 +25,8 @@ Long description of module's purpose
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/consultation_rules.xml',
+        'security/nurse_round_rules.xml',
         'views/hospital_doctor_views.xml',
         'views/hospital_nurse_views.xml',
         'views/hospital_patient_views.xml',
@@ -33,12 +35,18 @@ Long description of module's purpose
     ],
     # only loaded in demonstration mode
     'demo': [
+        'demo/medicine_demo.xml',
         'demo/doctor_demo.xml',
         'demo/nurse_demo.xml',
         'demo/patient_demo.xml',
         'demo/disease_demo.xml',
         'demo/symptom_demo.xml',
         'demo/symptom_disease_data.xml',
+        'demo/treatment_demo.xml',
+        'demo/request_demo.xml',
+        'demo/consultation_demo.xml',
+        'demo/hospitalized_patient_demo.xml',
+        'demo/round_demo.xml',
     ],
     'post_init_hook': 'assign_admin_hospital_group',
     'application': True,

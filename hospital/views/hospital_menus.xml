@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
-        <menuitem id="hospital_menu_root" name="Hospital" action="action_doctor" >
+        <menuitem id="hospital_menu_root" name="Hospital" action="action_doctor" groups="hospital.group_hospital_doctor,hospital.group_hospital_admin" >
             <menuitem id="doctor_nav" name="Doctor">
                 <menuitem id="menu_doctor" action="action_doctor"/>
             </menuitem>

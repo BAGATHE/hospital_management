@@ -13,3 +13,6 @@ class HospitalConsultation(models.Model):
     disease_id =  fields.Many2one('hospital.disease',ondelete='cascade',default=None)
     consultation_line_ids = fields.One2many('hospital.consultation.line','consultation_id',string='Consultation Lines')
     patient_id = fields.Many2one('hospital.patient', string='Patient', related='request_id.patient_id', store=True, readonly=True)
+    treatment_duration_days = fields.Integer('Treatment Duration Days', store=True)
+    is_hospitalized = fields.Boolean('admitted to hospital', default=False, store=True)
+    is_release_with_prescription = fields.Boolean('Release with prescription', default=False, store=True)

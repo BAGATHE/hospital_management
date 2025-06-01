@@ -29,8 +29,6 @@ Long description of module's purpose
         'views/hospital_request_views.xml',
         'views/hospitalized_patient_views.xml',
         'views/hospital_round_views.xml',
-        'report/nurse_hospital_round_report.xml',
-        'report/nurse_hospital_round_report_template.xml',
         'views/nurse_menus.xml',
     ],
     # only loaded in demonstration mode

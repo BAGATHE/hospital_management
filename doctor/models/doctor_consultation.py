@@ -6,15 +6,19 @@ from datetime import date
 class DoctorConsultation(models.Model):
     _inherit = 'hospital.consultation'
 
-    treatment_duration_days = fields.Integer('Treatment Duration Days',store=True)
-    is_hospitalized = fields.Boolean('admitted to hospital', default=False,store=True)
-    is_release_with_prescription = fields.Boolean('Release with prescription', default=False,store=True)
+
     price_total_medicine = fields.Float(compute='_compute_price_total_medicine', string="total price")
     gravity_disease = fields.Integer(compute='_compute_gravity_by_disease',store=True, string='Gravity')
     symptom_request_ids = fields.One2many(
         related='request_id.symptom_request_ids',
         readonly=True,
         string="Symptoms"
+    )
+    similar_consultation_ids = fields.Many2many(
+        'hospital.consultation',
+        string='Similar Completed Consultations',
+        compute='_compute_similar_consultations',
+        store=False
     )
 
 
@@ -23,12 +27,10 @@ class DoctorConsultation(models.Model):
          'Treatment duration must be a non-negative number.'),
     ]
 
-
-
     @api.depends('disease_id')
     def _compute_gravity_by_disease(self):
-        self.ensure_one()
-        self.gravity_disease = sum(self.disease_id.symptom_disease_ids.mapped('gravity'))
+        for rec in self:
+            rec.gravity_disease = sum(rec.disease_id.symptom_disease_ids.mapped('gravity'))
 
     @api.depends('consultation_line_ids.total_price')
     def _compute_price_total_medicine(self):
@@ -69,7 +71,8 @@ class DoctorConsultation(models.Model):
             'disease_id': self.disease_id.id,
             'admission_date': date.today(),
             'nb_days_evaluation': self.treatment_duration_days,
-            'state': 'admitted'
+            'state': 'admitted',
+            'consultation_id':self.id
         })
         self.state = 'completed'
         return {
@@ -89,3 +92,20 @@ class DoctorConsultation(models.Model):
     def action_cancel(self):
         self.ensure_one()
         self.state = 'canceled'
+
+    @api.depends('symptom_request_ids.symptom_id', 'state')
+    def _compute_similar_consultations(self):
+        for record in self:
+            if not record.symptom_request_ids:
+                record.similar_consultation_ids = [(5, 0, 0)]
+                continue
+
+            symptom_ids = record.symptom_request_ids.mapped('symptom_id.id')
+
+            similar_consultations = self.env['hospital.consultation'].search([
+                ('state', '=', 'completed'),
+                ('id', '!=', record.id),  # exclure la consultation en cours
+                ('request_id.symptom_request_ids.symptom_id', 'in', symptom_ids)
+            ])
+
+            record.similar_consultation_ids = similar_consultations

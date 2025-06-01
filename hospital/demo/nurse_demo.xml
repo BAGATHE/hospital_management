@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <data>
     <record id="demo_nurse_1" model="hospital.nurse">
-        <field name="name">Sophie Dupont</field>
-        <field name="login">sophie@gmail.com</field>
-        <field name="password">sophie</field>
+        <field name="name">nurse 1</field>
+        <field name="login">nurse1</field>
+        <field name="password">nurse1</field>
         <field name="license_number">NURSE2025001</field>
         <field name="start_service">2022-03-15</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_nurse'))]"/>
     </record>
 
     <record id="demo_nurse_2" model="hospital.nurse">
-        <field name="name">Alex Martin</field>
-        <field name="login">alex@gmail.com</field>
-        <field name="password">alex</field>
+        <field name="name">nurse 2</field>
+        <field name="login">nurse2</field>
+        <field name="password">nurse2</field>
         <field name="license_number">NURSE2025002</field>
         <field name="start_service">2023-09-01</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_nurse'))]"/>
     </record>
+    </data>
 </odoo>

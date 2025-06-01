@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
   <record id="action_report_hospital_round_week" model="ir.actions.report">
     <field name="name">PDF Export - Weekly Round</field>
@@ -6,6 +7,6 @@
     <field name="report_name">nurse.report_hospital_round</field>
     <field name="binding_model_id" ref="hospital.model_hospital_round"/>
     <field name="binding_type">report</field>
-    <field name="print_report_name">'Round_Week_Report' + (object.round_date or 'unknown')</field>
   </record>
 </odoo>
+

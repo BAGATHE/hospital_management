@@ -1,0 +1,66 @@
+<odoo>
+    <data noupdate="1">
+
+        <!-- Médicaments pour Influenza -->
+        <record id="med_medicament_1" model="hospital.medicine">
+            <field name="name">FluCure A</field>
+            <field name="price">10.5</field>
+        </record>
+
+        <record id="med_medicament_2" model="hospital.medicine">
+            <field name="name">FluCure B</field>
+            <field name="price">12.0</field>
+            <field name="equivalent_ids" eval="[(6, 0, [ref('med_medicament_1')])]"/>
+        </record>
+
+        <!-- Médicaments pour Diabetes -->
+        <record id="med_medicament_3" model="hospital.medicine">
+            <field name="name">DiabeX A</field>
+            <field name="price">20.0</field>
+        </record>
+
+        <record id="med_medicament_4" model="hospital.medicine">
+            <field name="name">DiabeX B</field>
+            <field name="price">18.5</field>
+            <field name="equivalent_ids" eval="[(6, 0, [ref('med_medicament_3')])]"/>
+        </record>
+
+        <!-- Médicaments pour Tuberculosis -->
+        <record id="med_medicament_5" model="hospital.medicine">
+            <field name="name">TuberBloc A</field>
+            <field name="price">25.0</field>
+        </record>
+
+        <record id="med_medicament_6" model="hospital.medicine">
+            <field name="name">TuberBloc B</field>
+            <field name="price">27.5</field>
+            <field name="equivalent_ids" eval="[(6, 0, [ref('med_medicament_5')])]"/>
+        </record>
+
+        <!-- Médicaments pour Hypertension -->
+        <record id="med_medicament_7" model="hospital.medicine">
+            <field name="name">HyperMed A</field>
+            <field name="price">15.0</field>
+        </record>
+
+        <record id="med_medicament_8" model="hospital.medicine">
+            <field name="name">HyperMed B</field>
+            <field name="price">14.5</field>
+            <field name="equivalent_ids" eval="[(6, 0, [ref('med_medicament_7')])]"/>
+        </record>
+
+        <!-- Médicaments polyvalents -->
+        <record id="med_medicament_9" model="hospital.medicine">
+            <field name="name">MultiHeal X</field>
+            <field name="price">30.0</field>
+            <field name="equivalent_ids" eval="[(6, 0, [ref('med_medicament_2'), ref('med_medicament_4')])]"/>
+        </record>
+
+        <record id="med_medicament_10" model="hospital.medicine">
+            <field name="name">UniversalMed Z</field>
+            <field name="price">35.0</field>
+            <field name="equivalent_ids" eval="[(6, 0, [ref('med_medicament_6'), ref('med_medicament_8')])]"/>
+        </record>
+
+    </data>
+</odoo>

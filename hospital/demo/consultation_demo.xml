@@ -1,0 +1,59 @@
+<odoo>
+    <data noupdate="1">
+
+         <!-- Mise à jour Consultation 1 -->
+        <record id="demo_consultation_1" model="hospital.consultation">
+            <field name="consultation_date">2025-06-04</field>
+            <field name="doctor_id" ref="demo_doctor_1"/>
+            <field name="patient_id" ref="demo_patient_1"/>
+            <field name="request_id" ref="demo_request_1"/>
+            <field name="disease_id" ref="demo_disease_1"/>
+
+
+            <field name="is_release_with_prescription">False</field>
+            <field name="state">completed</field>
+            <field name="advice">Get proper rest, stay hydrated and take prescribed medicines.</field>
+            <field name="diagnosis">Influenza - early stage viral infection with mild symptoms.</field>
+            <field name="treatment_duration_days">6</field>
+            <field name="is_hospitalized">True</field>
+        </record>
+
+        <!-- Lignes de consultation pour la consultation 1 -->
+        <record id="demo_consultation_line_1" model="hospital.consultation.line">
+            <field name="consultation_id" ref="demo_consultation_1"/>
+            <field name="medicine_id" ref="med_medicament_1"/>
+            <field name="quantity">2</field>
+            <field name="dosage">1 pill after breakfast and 1 after dinner</field>
+            <field name="duration">3</field>
+        </record>
+
+        <record id="demo_consultation_line_2" model="hospital.consultation.line">
+            <field name="consultation_id" ref="demo_consultation_1"/>
+            <field name="medicine_id" ref="med_medicament_2"/>
+            <field name="quantity">1</field>
+            <field name="dosage">1 pill before sleep</field>
+            <field name="duration">2</field>
+        </record>
+
+        <!-- Consultation pour Request 2 -->
+        <record id="demo_consultation_2" model="hospital.consultation">
+            <field name="consultation_date">2025-06-05</field>
+            <field name="doctor_id" ref="demo_doctor_2"/>
+            <field name="patient_id" ref="demo_patient_2"/>
+            <field name="request_id" ref="demo_request_2"/>
+            <field name="is_hospitalized">False</field>
+            <field name="is_release_with_prescription">False</field>
+        </record>
+
+        <!-- Consultation pour Request 3 -->
+        <record id="demo_consultation_3" model="hospital.consultation">
+            <field name="consultation_date">2025-06-08</field>
+            <field name="doctor_id" ref="demo_doctor_1"/>
+            <field name="patient_id" ref="demo_patient_4"/>
+            <field name="request_id" ref="demo_request_3"/>
+            <field name="is_hospitalized">False</field>
+            <field name="is_release_with_prescription">False</field>
+        </record>
+
+    </data>
+</odoo>

@@ -74,6 +74,15 @@
                             </list>
                         </field>
                     </page>
+                    <page string="Similar cases treated">
+                        <field name="similar_consultation_ids">
+                            <list>
+                                <field name="patient_id"/>
+                                <field name="consultation_date"/>
+                                <field name="state"/>
+                            </list>
+                        </field>
+                    </page>
                 </notebook>
                 <separator string="Actions"/>
                 <group>

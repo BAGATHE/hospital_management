@@ -1,0 +1,76 @@
+<odoo>
+    <data noupdate="1">
+
+        <!-- Request 1 : Patient 1 -->
+        <record id="demo_request_1" model="hospital.request">
+            <field name="request_date">2025-06-04</field>
+            <field name="state">validated</field>
+            <field name="patient_id" ref="demo_patient_1"/>
+            <field name="nurse_id" ref="demo_nurse_1"/>
+            <field name="doctor_id" ref="demo_doctor_1"/>
+        </record>
+
+        <record id="demo_symptom_request_1_1" model="hospital.symptom.request">
+            <field name="request_id" ref="demo_request_1"/>
+            <field name="symptom_id" ref="demo_symptom_1"/>
+        </record>
+        <record id="demo_symptom_request_1_2" model="hospital.symptom.request">
+            <field name="request_id" ref="demo_request_1"/>
+            <field name="symptom_id" ref="demo_symptom_2"/>
+        </record>
+
+        <!-- Request 2 : Patient 2 -->
+        <record id="demo_request_2" model="hospital.request">
+            <field name="request_date">2025-06-05</field>
+            <field name="state">validated</field>
+            <field name="patient_id" ref="demo_patient_2"/>
+            <field name="nurse_id" ref="demo_nurse_2"/>
+            <field name="doctor_id" ref="demo_doctor_2"/>
+        </record>
+
+        <record id="demo_symptom_request_2_1" model="hospital.symptom.request">
+            <field name="request_id" ref="demo_request_2"/>
+            <field name="symptom_id" ref="demo_symptom_3"/>
+        </record>
+        <record id="demo_symptom_request_2_2" model="hospital.symptom.request">
+            <field name="request_id" ref="demo_request_2"/>
+            <field name="symptom_id" ref="demo_symptom_4"/>
+        </record>
+
+        <!-- Request 3 : Patient 3 -->
+        <record id="demo_request_3" model="hospital.request">
+            <field name="request_date">2025-06-08</field>
+             <field name="state">validated</field>
+            <field name="patient_id" ref="demo_patient_4"/>
+            <field name="nurse_id" ref="demo_nurse_1"/>
+            <field name="doctor_id" ref="demo_doctor_1"/>
+        </record>
+
+        <record id="demo_symptom_request_3_1" model="hospital.symptom.request">
+            <field name="request_id" ref="demo_request_3"/>
+            <field name="symptom_id" ref="demo_symptom_5"/>
+        </record>
+        <record id="demo_symptom_request_3_2" model="hospital.symptom.request">
+            <field name="request_id" ref="demo_request_3"/>
+            <field name="symptom_id" ref="demo_symptom_6"/>
+        </record>
+
+        <!-- Request 4 : Patient 4 -->
+        <record id="demo_request_4" model="hospital.request">
+            <field name="request_date">2025-06-10</field>
+            <field name="patient_id" ref="demo_patient_5"/>
+            <field name="nurse_id" ref="demo_nurse_2"/>
+            <field name="doctor_id" ref="demo_doctor_2"/>
+        </record>
+
+        <record id="demo_symptom_request_4_1" model="hospital.symptom.request">
+            <field name="request_id" ref="demo_request_4"/>
+            <field name="symptom_id" ref="demo_symptom_7"/>
+        </record>
+        <record id="demo_symptom_request_4_2" model="hospital.symptom.request">
+            <field name="request_id" ref="demo_request_4"/>
+            <field name="symptom_id" ref="demo_symptom_8"/>
+        </record>
+
+    </data>
+</odoo>

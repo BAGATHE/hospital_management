@@ -1,0 +1,13 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_hospitalized_patient_1" model="hospital.hospitalized.patient">
+            <field name="admission_date">2025-06-04</field>
+            <field name="nb_days_evaluation">5</field>
+            <field name="state">discharged</field>
+            <field name="patient_id" ref="demo_patient_1"/>
+            <field name="disease_id" ref="demo_disease_1"/>
+            <field name="consultation_id" ref="demo_consultation_1"/>
+        </record>
+    </data>
+</odoo>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <data noupdate="1">
     <record id="demo_doctor_1" model="hospital.doctor">
         <field name="name">Dr. Doctor 1</field>
         <field name="login">doctor1</field>
@@ -17,4 +18,5 @@
         <field name="start_service">2022-05-20</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_doctor'))]"/>
     </record>
+    </data>
 </odoo>

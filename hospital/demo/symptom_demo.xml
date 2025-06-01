@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <data noupdate="1">
     <record id="demo_symptom_1" model="hospital.symptom">
         <field name="name">Fever</field>
     </record>
@@ -30,4 +31,5 @@
     <record id="demo_symptom_10" model="hospital.symptom">
         <field name="name">Loss of appetite</field>
     </record>
+    </data>
 </odoo>
