@@ -45,6 +45,7 @@ class PatientPortal(http.Controller):
         patient = request.env['hospital.patient'].sudo().search([('user_id', '=', request.uid)], limit=1)
         symptoms = request.env['hospital.symptom'].sudo().search([])
         doctors = request.env['hospital.doctor'].sudo().search([])
+        print(patient.id)
 
         if http.request.httprequest.method == 'POST':
             try:
@@ -66,4 +67,19 @@ class PatientPortal(http.Controller):
             'patient': patient,
             'symptoms': symptoms,
             'doctors': doctors,
+        })
+
+    @http.route('/my/state', type='http', auth='user', website=True)
+    def my_state(self, **kw):
+        patient = request.env['hospital.patient'].sudo().search([
+            ('user_id', '=', request.uid)
+        ], limit=1)
+        hospitalized = request.env['hospital.hospitalized.patient'].sudo().search(
+            [('patient_id', '=', patient.id)],
+            order='admission_date desc',
+            limit=1
+        )
+        return request.render('patient_portal.portal_my_state', {
+            'patient': patient,
+            'hospitalized': hospitalized,
         })

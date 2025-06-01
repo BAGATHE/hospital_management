@@ -27,10 +27,19 @@
                  <t t-set="url" t-value="'/my/requests'"/>
                  <t t-set="config_card" t-value="True"/>
              </t>
+            <t t-call="portal.portal_docs_entry">
+                 <t t-set="icon" t-value="'/patient_portal/static/src/img/state.svg'"/>
+                 <t t-set="title">My medical state</t>
+                 <t t-set="text">View your medical state</t>
+                 <t t-set="url" t-value="'/my/state'"/>
+                 <t t-set="config_card" t-value="True"/>
+             </t>
         </xpath>
     </template>
 
-    <!-- 📄 Page liste des demandes -->
+
+
+    <!-- Page liste  -->
 
     <template id="portal_my_requests" name="My Requests">
     <t t-call="portal.portal_layout">
@@ -125,5 +134,53 @@
             </div>
         </t>
     </template>
+
+
+   <template id="portal_my_state" name="My Medical State">
+    <t t-call="portal.portal_layout">
+        <div class="container mt-4">
+            <div class="text-center mb-4">
+                <t t-if="hospitalized">
+                    <div class="alert alert-primary py-4" role="alert" style="font-size: 24px; font-weight: bold;">
+                        Patient Status:
+                        <t t-esc="dict(hospitalized._fields['state'].selection).get(hospitalized.state)"/>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="alert alert-warning py-4" role="alert" style="font-size: 24px; font-weight: bold;">
+                        No medical status available
+                    </div>
+                </t>
+            </div>
+            <h4 class="mb-3">Personal Information</h4>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <strong>Sex:</strong> <t t-esc="patient.sex or 'N/A'"/>
+                </div>
+                <div class="col-md-6">
+                    <strong>Blood Type:</strong> <t t-esc="patient.blood_type or 'N/A'"/>
+                </div>
+                <div class="col-md-6">
+                    <strong>Date of Birth:</strong>
+                    <t t-esc="patient.date_of_birth.strftime('%d/%m/%Y') if patient.date_of_birth else 'N/A'"/>
+                </div>
+                <div class="col-md-6">
+                    <strong>Weight (kg):</strong> <t t-esc="patient.weight or 'N/A'"/>
+                </div>
+            </div>
+            <t t-if="hospitalized">
+                <h4 class="mb-3">Medical Details</h4>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Disease:</strong> <t t-esc="hospitalized.disease_id.name"/></li>
+                    <li class="list-group-item"><strong>Admission Date:</strong> <t t-esc="hospitalized.admission_date.strftime('%d/%m/%Y')"/></li>
+                    <li class="list-group-item"><strong>Days of Evaluation:</strong> <t t-esc="hospitalized.nb_days_evaluation"/></li>
+                </ul>
+            </t>
+
+        </div>
+    </t>
+</template>
+
+
 
 </odoo>
