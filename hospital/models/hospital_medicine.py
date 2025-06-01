@@ -11,5 +11,6 @@ class HospitalMedecine(models.Model):
         'medicine_equivalent_rel',
         'medicine_id',
         'equivalent_id',
-        string="Equivalent Medicines"
+        string="Equivalent Medicines",
+        store=True,
     )

@@ -1,0 +1,60 @@
+<odoo>
+    <data noupdate="1">
+
+        <!-- Traitement Influenza -->
+        <record id="treatment_1" model="hospital.treatment">
+            <field name="disease_id" ref="demo_disease_1"/>
+            <field name="medicine_id" ref="med_medicament_1"/>
+        </record>
+
+        <record id="treatment_2" model="hospital.treatment">
+            <field name="disease_id" ref="demo_disease_1"/>
+            <field name="medicine_id" ref="med_medicament_2"/>
+        </record>
+
+        <!-- Traitement Diabetes -->
+        <record id="treatment_3" model="hospital.treatment">
+            <field name="disease_id" ref="demo_disease_2"/>
+            <field name="medicine_id" ref="med_medicament_3"/>
+        </record>
+
+        <record id="treatment_4" model="hospital.treatment">
+            <field name="disease_id" ref="demo_disease_2"/>
+            <field name="medicine_id" ref="med_medicament_4"/>
+        </record>
+
+        <!-- Traitement Tuberculosis -->
+        <record id="treatment_5" model="hospital.treatment">
+            <field name="disease_id" ref="demo_disease_3"/>
+            <field name="medicine_id" ref="med_medicament_5"/>
+        </record>
+
+        <record id="treatment_6" model="hospital.treatment">
+            <field name="disease_id" ref="demo_disease_3"/>
+            <field name="medicine_id" ref="med_medicament_6"/>
+        </record>
+
+        <!-- Traitement Hypertension -->
+        <record id="treatment_7" model="hospital.treatment">
+            <field name="disease_id" ref="demo_disease_4"/>
+            <field name="medicine_id" ref="med_medicament_7"/>
+        </record>
+
+        <record id="treatment_8" model="hospital.treatment">
+            <field name="disease_id" ref="demo_disease_4"/>
+            <field name="medicine_id" ref="med_medicament_8"/>
+        </record>
+
+        <!-- Traitements généraux (polyvalents) -->
+        <record id="treatment_9" model="hospital.treatment">
+            <field name="disease_id" ref="demo_disease_1"/>
+            <field name="medicine_id" ref="med_medicament_9"/>
+        </record>
+
+        <record id="treatment_10" model="hospital.treatment">
+            <field name="disease_id" ref="demo_disease_2"/>
+            <field name="medicine_id" ref="med_medicament_10"/>
+        </record>
+
+    </data>
+</odoo>

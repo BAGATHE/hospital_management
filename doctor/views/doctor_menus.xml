@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
-        <menuitem id="doctor_consultation_menu_root" name="Doctor" action="action_doctor_consultation">
+        <menuitem id="doctor_consultation_menu_root" name="Doctor" action="action_doctor_consultation" groups="hospital.group_hospital_doctor,hospital.group_hospital_admin">
             <menuitem id="doctor_consultation_nav" name="Consultation">
                 <menuitem id="menu_consultation_doctor" action="action_doctor_consultation"/>
             </menuitem>
+            <menuitem id="menu_patient_file" action="action_doctor_patient"/>
         </menuitem>
     </data>
 </odoo>

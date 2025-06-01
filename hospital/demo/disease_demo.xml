@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <data noupdate="1">
     <record id="demo_disease_1" model="hospital.disease">
         <field name="name">Influenza</field>
         <field name="description">A common viral infection that can be deadly, especially in high-risk groups.</field>
@@ -23,4 +24,5 @@
         <field name="description">A condition in which the force of the blood against the artery walls is too high.</field>
         <field name="contagiousness">no</field>
     </record>
+    </data>
 </odoo>

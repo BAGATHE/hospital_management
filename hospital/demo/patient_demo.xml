@@ -1,4 +1,5 @@
 <odoo>
+    <data noupdate="1">
     <!-- Comptes utilisateurs avec groupe portal -->
     <record id="user_john" model="res.users">
         <field name="name">Patient1</field>
@@ -69,4 +70,5 @@
         <field name="weight">59</field>
         <field name="user_id" ref="user_sophia"/>
     </record>
+    </data>
 </odoo>

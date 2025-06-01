@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-        <menuitem id="disease_management_menu_root" name="Disease Management"/>
+        <menuitem id="disease_management_menu_root" name="Disease Management" groups="hospital.group_hospital_doctor,hospital.group_hospital_admin"/>
 
         <menuitem id="disease_management_menu_nav_disease" name="Diseases" parent="disease_management_menu_root">
             <menuitem id="menu_disease_list" name="All Diseases" action="action_disease"/>

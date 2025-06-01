@@ -25,6 +25,9 @@ Long description of module's purpose
     # always loaded
     'data': [
         'views/doctor_consultation.xml',
+        'views/doctor_hospital_patient.xml',
+        'report/doctor_hospital_patient_reports.xml',
+        'report/doctor_hospital_patient_templates.xml',
         'views/doctor_menus.xml',
         'views/views.xml',
         'views/templates.xml',
