@@ -1,6 +1,7 @@
 # 🏥 Odoo Healthcare Modules
+![Capture d’écran du 2025-06-03 10-09-40](https://github.com/user-attachments/assets/3a170f15-a41d-4581-b31e-33c8cc335ec9)
 
-![Capture d’écran](https://github.com/user-attachments/assets/539e027d-78c4-4431-b27d-37830ce7be69)
+
 
 ---
 
@@ -12,7 +13,6 @@
 - `nurse`
 - `doctor`
 - `pharmacy`
-- `healthcare_bridge`
 
 ---
 
