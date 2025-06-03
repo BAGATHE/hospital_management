@@ -16,7 +16,6 @@
             <field name="arch" type="xml">
                 <list>
                     <field name="name"/>
-                    <field name="contagiousness"/>
                 </list>
             </field>
         </record>
@@ -31,7 +30,6 @@
                         <group>
                             <field name="name"/>
                             <field name="description"/>
-                            <field name="contagiousness"/>
                         </group>
                         <notebook>
                             <page string="Symptoms">

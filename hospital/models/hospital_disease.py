@@ -7,7 +7,7 @@ class HospitalDisease(models.Model):
 
     name = fields.Char(string="Disease Name",required=True)
     description = fields.Char(string="Description")
-    contagiousness = fields.Selection(string="Contagiousness",selection=[('undetermined', 'Undetermined'), ('yes', 'Yes'), ('no', 'No')],required=True,default='undetermined')
+    contagiousness = fields.Selection(string="Contagiousness",selection=[('undetermined', 'Undetermined'), ('yes', 'Yes'), ('no', 'No')],default='undetermined')
     symptom_disease_ids = fields.One2many(
         'hospital.symptom.disease',
         'disease_id',
