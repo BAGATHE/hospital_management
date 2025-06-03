@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem id="pharmacy_menu_root" name="" action="action_pharmacy">
+            <menuitem id="pharmacy_nav" name="pharmacy">
+                <menuitem id="menu_" action="action_pharmacy"/>
+            </menuitem>
+        </menuitem>
+    </data>
+</odoo>

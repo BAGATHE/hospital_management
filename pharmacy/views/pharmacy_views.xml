@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <record id="action_pharmacy" model="ir.actions.act_window">
+        <field name="name">Pharmacies</field>
+        <field name="res_model">pharmacy.pharmacy</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Vue liste des pharmacies -->
+    <record id="view_pharmacy_tree" model="ir.ui.view">
+        <field name="name">pharmacy.pharmacy.list</field>
+        <field name="model">pharmacy.pharmacy</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="delay_out_of_stock"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pharmacy_form" model="ir.ui.view">
+        <field name="name">pharmacy.pharmacy.form</field>
+        <field name="model">pharmacy.pharmacy</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>list
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="delay_out_of_stock"/>
+                    </group>
+                    <notebook>
+                        <page string="Médicaments">
+                            <field name="pharmacy_product_ids">
+                                <list editable="bottom">
+                                    <field name="product_id" domain="[('product_tmpl_id.categ_id.name', '=', 'All')]"/>
+                                    <field name="category" />
+                                    <field name="price"/>
+                                    <field name="stock"/>
+                                    <field name="restock_delay"/>
+                                    <field name="next_available_date"/>
+                                    <field name="equivalent_ids" widget="many2many_tags"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pharmacy_product_list" model="ir.ui.view">
+        <field name="name">pharmacy.product.list</field>
+        <field name="model">pharmacy.product</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="pharmacy_id"/>
+                <field name="product_id"/>
+                <field name="price"/>
+                <field name="stock"/>
+                <field name="next_available_date"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>

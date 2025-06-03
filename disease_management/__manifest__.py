@@ -8,7 +8,7 @@
 Long description of module's purpose
     """,
 
-    'author': "Lolo",
+    'author': "Angelo",
     'website': "https://github.com/BAGATHE",
 
     # Categories can be used to filter modules in modules listing

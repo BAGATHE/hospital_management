@@ -2,28 +2,28 @@
     <data noupdate="1">
     <!-- Comptes utilisateurs avec groupe portal -->
     <record id="user_john" model="res.users">
-        <field name="name">Patient1</field>
+        <field name="name">patient1</field>
         <field name="login">patient1</field>
         <field name="password">patient1</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
     </record>
 
     <record id="user_smith" model="res.users">
-        <field name="name">Patient 2</field>
+        <field name="name">patient 2</field>
         <field name="login">patient2</field>
         <field name="password">patient2</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
     </record>
 
     <record id="user_brown" model="res.users">
-        <field name="name">Patient 3</field>
+        <field name="name">patient 3</field>
         <field name="login">patient3</field>
         <field name="password">patient3</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
     </record>
 
     <record id="user_sophia" model="res.users">
-        <field name="name">Patient 4</field>
+        <field name="name">patient 4</field>
         <field name="login">patient4</field>
         <field name="password">patient4</field>
         <field name="groups_id" eval="[(4, ref('hospital.group_hospital_patient'))]"/>
@@ -31,7 +31,7 @@
 
     <!-- Patients liés aux utilisateurs -->
     <record id="demo_patient_1" model="hospital.patient">
-        <field name="name">Patient 1</field>
+        <field name="name">patient 1</field>
         <field name="email">patient1</field>
         <field name="sex">male</field>
         <field name="blood_type">A</field>
@@ -41,7 +41,7 @@
     </record>
 
     <record id="demo_patient_2" model="hospital.patient">
-        <field name="name">Patient 2</field>
+        <field name="name">patient 2</field>
         <field name="email">patient2</field>
         <field name="sex">female</field>
         <field name="blood_type">B</field>
@@ -52,7 +52,7 @@
 
 
     <record id="demo_patient_4" model="hospital.patient">
-        <field name="name">Patient 3</field>
+        <field name="name">patient 3</field>
         <field name="email">patient3</field>
         <field name="sex">male</field>
         <field name="blood_type">O</field>
@@ -62,7 +62,7 @@
     </record>
 
     <record id="demo_patient_5" model="hospital.patient">
-        <field name="name">Patient 4</field>
+        <field name="name">patient 4</field>
         <field name="email">patient4</field>
         <field name="sex">female</field>
         <field name="blood_type">A</field>

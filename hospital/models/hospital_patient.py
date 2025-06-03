@@ -7,13 +7,14 @@ class HospitalPatient(models.Model):
     _inherits = {'res.partner': 'partner_id'}
     _description = 'Hospital Patient'
 
-    partner_id = fields.Many2one('res.partner', string="Related Partner", required=True, ondelete='cascade')
+
 
     sex = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Sex", required=True)
     blood_type = fields.Selection([('A', 'A'), ('B', 'B'), ('AB', 'AB'), ('O', 'O')], string="Blood Type", required=True)
     date_of_birth = fields.Date(string="Date of Birth", required=True)
     weight = fields.Float(string="Weight (kg)", required=True)
     user_id = fields.Many2one('res.users', string='Portal Account')
+    partner_id = fields.Many2one('res.partner', string="Related Partner", required=True, ondelete='cascade')
     login = fields.Char(string="Login")
     password = fields.Char(string="Password")
 

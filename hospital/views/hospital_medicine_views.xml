@@ -2,7 +2,7 @@
 <odoo>
    <data>
 
-       <!-- Action -->
+     <!-- Action -->
        <record id="action_medicine" model="ir.actions.act_window">
            <field name="name">Hospital Medicine</field>
            <field name="res_model">hospital.medicine</field>
@@ -14,17 +14,19 @@
            </field>
        </record>
 
+       <!-- Tree view -->
        <record id="view_hospital_medicine_tree" model="ir.ui.view">
            <field name="name">hospital.medicine.tree</field>
            <field name="model">hospital.medicine</field>
            <field name="arch" type="xml">
                <list string="Hospital Medicines">
                    <field name="name"/>
-                   <field name="price"/>
+                   <field name="list_price"/>
                </list>
            </field>
        </record>
 
+       <!-- Form view -->
        <record id="view_hospital_medicine_form" model="ir.ui.view">
            <field name="name">hospital.medicine.form</field>
            <field name="model">hospital.medicine</field>
@@ -33,7 +35,8 @@
                    <sheet>
                        <group>
                            <field name="name"/>
-                           <field name="price"/>
+                           <field name="list_price" string="Price"/>
+                           <field name="dosage"/>
                        </group>
                        <group string="Equivalent Medicines">
                            <field name="equivalent_ids" widget="many2many_tags"/>
