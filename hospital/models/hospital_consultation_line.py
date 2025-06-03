@@ -9,8 +9,7 @@ class HospitalConsultationLine(models.Model):
     dosage = fields.Text(string="dosage")
     duration = fields.Integer(string="Duration in days",required=True,default=1)
     consultation_id = fields.Many2one('hospital.consultation',required=True,ondelete='cascade')
-    medicine_price =fields.Float(related='medicine_id.price',string="price")
-
+    medicine_price =fields.Float(related='medicine_id.list_price',string="price")
 
     _sql_constraints = [
         ('positive_quantity', 'CHECK(quantity > 0)', 'The quantity must be greater than zero.'),

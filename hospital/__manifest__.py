@@ -18,7 +18,7 @@ Long description of module's purpose
     'version': '0.1',
      'license': 'LGPL-3',
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','product'],
     'icon': '/hospital/static/src/img/hospital.svg',
 
     # always loaded
@@ -52,4 +52,5 @@ Long description of module's purpose
     'application': True,
     'installable': True,
 }
+
 

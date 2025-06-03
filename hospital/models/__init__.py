@@ -15,3 +15,4 @@ from . import hospital_consultation_line
 from . import hospital_consultation
 from . import hospital_round
 from . import hospital_treatment
+#from . import hospital_product_template
