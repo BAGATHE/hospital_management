@@ -21,7 +21,7 @@
 Run the following command during the initial setup:
 
 ```bash
-python odoo-bin -c <odoo.conf> -d <odoodb> -i hospital,disease_management,patient_portal,nurse,doctor,pharmacy,healthcare_bridge
+python odoo-bin -c <odoo.conf> -d <odoodb> -i hospital,disease_management,patient_portal,nurse,doctor,pharmacy
 ```
  This command installs all the necessary modules and loads demo data automatically.
 The system user of your Odoo instance will be assigned to the hospital_admin group.
